@@ -1,0 +1,317 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage[russian,colorlinks=true,urlcolor=red,linkcolor=blue]{hyperref}
+\usepackage{enumerate}
+\usepackage{datetime}
+\usepackage{minted}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{amsthm,amsfonts,amscd}
+\usepackage{blkarray}
+\usepackage{mathtools}
+\usepackage{xcolor,cancel}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{setspace}
+\usepackage{epigraph}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage{cite}
+\usepackage{bbm}
+\usepackage{dsfont}
+
+\parskip=0em
+\parindent=0em
+
+\sloppy
+\voffset=-20mm
+\textheight=235mm
+\hoffset=-25mm
+\textwidth=180mm
+\headsep=12pt
+\footskip=20pt
+
+\setcounter{page}{0}
+\pagestyle{empty}
+
+% Основные математические символы
+% shortcuts
+\newcommand{\N}{\mathbb{N}} % set of natural numbers
+\newcommand{\Z}{\mathbb{Z}} % set of integers
+\newcommand{\Q}{\mathbb{Q}} % set of rational numbers
+\newcommand{\I}{\mathbb{I}} % set of irrational numbers
+\newcommand{\R}{\mathbb{R}} % set of real numbers
+\newcommand{\RR}{\overline {\mathbb{R}}} % set of real numbers with infinity
+\newcommand{\F}{\mathbb{F}} % finite field
+\renewcommand{\C}{\mathbb{C}} % set of complex numbers
+\newcommand{\CC}{\overline{\C}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\X}{\mathcal{X}}
+\renewcommand{\P}{\mathcal{P}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\EQ}{ \; \, \Leftrightarrow \; \, } % if and only if
+% \renewcommand{\inf}{\infty} % NOOO WHY WOULD YOU DO THAT
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\newcommand{\tto}{\rightrightarrows}
+\DeclareMathOperator{\supp}{supp}
+
+% \newcommand{\O}{\varnothing} % empty set
+\newcommand{\DEF}{\overset{Def}{=}}
+\newcommand{\proofed}{$\blacksquare$}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\So}{\Rightarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\wtd}{\widetilde}
+\newcommand{\ov}{\overline}
+
+%values
+\newcommand{\dV}{\dim\,V}
+\newcommand{\dW}{\dim\,W}
+\newcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\KerA}{\operatorname{Ker}\A}
+\newcommand{\Ln}{\operatorname{Ln}}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\Cl}{\operatorname{Cl}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\res}{\operatorname*{res}}
+\newcommand{\coef}{\operatorname*{coef}}
+\newcommand{\pvint}{\mathrm{v. p. }\int}
+
+\newcommand{\rk}{\text{rk}\,}
+\newcommand{\id}{\text{id}}
+\newcommand{\Id}{\text{Id}\,}
+\newcommand{\Lin}{\text{Lin}}
+\newcommand{\Bil}{\text{Bil}}
+\newcommand{\End}{\text{End}}
+\newcommand{\EV}{\text{End}\,V}
+\newcommand{\EW}{\text{End}\,W}
+\newcommand{\charla}{\A-\la\cdot \Id_V}
+\newcommand{\charlae}{\A-\la\E}
+\newcommand{\Kercharla}{\Ker(\A-\la\cdot \Id_V)}
+\newcommand{\eigsp}{V_{\la}}
+\newcommand{\XA}{\X_{\A}}
+\newcommand{\geom}{g_{\la}}
+\newcommand{\algm}{a_{\la}}
+\newcommand{\VC}{V_{\C}}
+\newcommand{\AC}{\A_{\C}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Mp}{M_1\times .. \times{M_n}}
+\newcommand{\Mt}{M_1\otimes..\otimes{M_n}}
+\newcommand{\mt}{m_1\otimes..\otimes{m_n}}
+\newcommand{\mon}{m\otimes n}
+\newcommand{\MoN}{M\otimes N}
+\newcommand{\mos}{m\otimes s}
+\newcommand{\MoS}{M\otimes S}
+\newcommand{\VoW}{V\otimes W}
+\newcommand{\vow}{v\otimes w}
+\newcommand{\AoB }{\A\otimes\B}
+\newcommand{\ext}{\bigwedge}
+\newcommand{\extV}{\bigwedge^pV}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\dotprod}[2]{\ensuremath{\left\langle #1, #2 \right\rangle}}
+\newcommand*\conj[1]{\overline{#1}}
+\newcommand{\Lip}{\operatorname*{Lip}}
+
+
+% more beautiful comparision signs
+\renewcommand{\le}{\leqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\O}{\varnothing}
+
+%greek symbols
+\newcommand{\al}{\alpha}
+\newcommand{\si}{\sigma}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\la}{\lambda}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+\newcommand{\uo}{\upomega}
+\newcommand{\oal}{\overline{\al}}
+\newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega}
+\newcommand{\ola}{\overline{\la}}
+
+%matrix
+\newcommand{\alvech}{(\al_1, .., \al_n)}
+\newcommand{\mvech}{(m_1, .., m_n)}
+\newcommand{\alvecv}{\begin{pmatrix}
+  \al_1\\
+   ...\\
+  \al_n
+\end{pmatrix}}
+\newcommand{\bevech}{(\be_1, .., \be_n)}
+\newcommand{\bevecv}{\begin{pmatrix}
+  \be_1\\
+   ...\\
+  \be_n
+\end{pmatrix}}
+\newcommand{\evech}{(e_1, .., e_n)}
+\newcommand{\fvech}{(f_1, .., f_n)}
+\newcommand{\fmvech}{(f_1, .., f_m)}
+\newcommand{\amat}{\begin{pmatrix}
+  a_{11}& ...&a_{1n} \\
+   ...&...&...\\
+  a_{n1}& ...&a_{nn}
+\end{pmatrix}}
+
+\newcommand{\ammat}{\begin{pmatrix}
+  a_{11}& ...&a_{1m} \\
+   ...&...&...\\
+  a_{m1}& ...&a_{mm}
+\end{pmatrix}}
+
+\newcommand{\jo}{\text{J}_m(\al)}
+
+\newcommand{\jomat}{\begin{pmatrix}
+  \al &0 &0 &.. & 0 \\
+  1 &\al &0& .. & 0 \\
+  0 &1 &\al &.. & 0 \\
+  .. & ..  &.. &..  & .. \\
+  0  & 0  &0 &1 &\al
+\end{pmatrix}}
+
+
+\newcommand{\Xm}{X_{\mvech}}
+\newcommand{\pder}[2]{
+  \frac{\partial #1}{\partial #2}
+}
+\newcommand{\ppder}[2]{
+  \frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\def\EPS{\varepsilon}         %
+\def\SO{\Rightarrow}          % =>
+\def\t{\texttt}               %
+\def\O{\mathcal{O}}           %
+\def\NO{\t{\#}}               % #
+\renewcommand{\le}{\leqslant} % <=, beauty
+\renewcommand{\ge}{\geqslant} % >=, beauty
+\def\XOR{\text{ {\raisebox{-2pt}{\ensuremath{\Hat{}}}} }}
+\newcommand{\q}[1]{\langle #1 \rangle}               % <x>
+\newcommand\URL[1]{{\footnotesize{\url{#1}}}}        %
+\newcommand{\sfrac}[2]{{\scriptstyle\frac{#1}{#2}}}  % Очень маленькая дробь
+\newcommand{\mfrac}[2]{{\textstyle\frac{#1}{#2}}}    % Небольшая дробь
+\newcommand{\score}[1]{{\bf\color{red}{(#1)}}}
+
+\DeclareMathOperator\arcsinh{arcsinh}
+\DeclareMathOperator\arccosh{arccosh}
+\DeclareMathOperator\arctanh{arctanh}
+% Отступы
+\def\makeparindent{\hspace*{\parindent}}
+\def\up{\vspace*{-\baselineskip}}
+\def\down{\vspace*{\baselineskip}}
+\def\LINE{\vspace*{-1em}\noindent \underline{\hbox to 1\textwidth{{ } \hfil{ } \hfil{ } }}}
+
+\lhead{Subject, semester}
+\chead{}
+\rhead{Name Surname}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\lfoot{}
+\cfoot{\thepage\t{/}\pageref*{LastPage}}
+\rfoot{}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newenvironment{MyList}[1][4pt]{
+  \begin{enumerate}[1.]
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{#1}
+}{       
+  \end{enumerate}
+}
+\newenvironment{InnerMyList}[1][0pt]{
+  \vspace*{-0.5em}
+  \begin{enumerate}[a)]
+  \setlength{\parskip}{#1}
+  \setlength{\itemsep}{0pt}
+}{
+  \end{enumerate}
+}
+
+\newcommand{\Section}[1]{
+  \refstepcounter{section}
+  \addcontentsline{toc}{section}{\arabic{section}. #1} 
+  %{\LARGE \bf \arabic{section}. #1} 
+  {\LARGE \bf #1} 
+  \vspace*{1em}
+  \makeparindent\unskip
+}
+\newcommand{\Subsection}[1]{
+  \refstepcounter{subsection}
+  \addcontentsline{toc}{subsection}{\arabic{section}.\arabic{subsection}. #1} 
+  {\Large \bf \arabic{section}.\arabic{subsection}. #1} 
+  \vspace*{0.5em}
+  \makeparindent\unskip
+}
+
+\newenvironment{code}{
+  \VerbatimEnvironment
+
+  \vspace*{-0.5em}
+  \begin{minted}{c}{}
+  \end{minted}
+  \vspace*{-0.5em}
+
+}
+
+\newenvironment{smallformula}{
+ 
+  \vspace*{-0.8em}
+}{
+  \vspace*{-1.2em}
+  
+}
+\newenvironment{formula}{
+ 
+  \vspace*{-0.4em}
+}{
+  \vspace*{-0.6em}
+  
+}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{brown}{rgb}{0.5,0.5,0}
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\dkgreen}[1]{{\color{dkgreen}{#1}}}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
+\makeatother
+\makeatletter
+\AddEnumerateCounter{\Asbuk}{\russian@Alph}{Щ}
+\makeatother
+
+\begin{document}
+
+\renewcommand{\dateseparator}{--}
+\begin{center}
+    {\Large\bf
+        Course, semecter YYYY/YY\\
+        Homework \NO \\
+    }
+\end{center}
+
+\vspace{-1em}
+\LINE
+\vspace{1em}
+
+
+\pagestyle{fancy}
+
+\end{document}
