@@ -7,9 +7,6 @@
             "label": "make",
             "type": "shell",
             "command": "make",
-            "args": [
-                "${file}"
-            ],
             "presentation": {
                 "echo": true,
                 "reveal": "always",
