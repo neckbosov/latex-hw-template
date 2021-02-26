@@ -219,16 +219,6 @@
 \def\down{\vspace*{\baselineskip}}
 \def\LINE{\vspace*{-1em}\noindent \underline{\hbox to 1\textwidth{{ } \hfil{ } \hfil{ } }}}
 
-\lhead{Subject, semester}
-\chead{}
-\rhead{Name Surname}
-\renewcommand{\headrulewidth}{0.4pt}
-
-\lfoot{}
-\cfoot{\thepage\t{/}\pageref*{LastPage}}
-\rfoot{}
-\renewcommand{\footrulewidth}{0.4pt}
-
 \newenvironment{MyList}[1][4pt]{
   \begin{enumerate}[1.]
   \setlength{\parskip}{0pt}
@@ -296,6 +286,16 @@
 \makeatletter
 \AddEnumerateCounter{\Asbuk}{\russian@Alph}{Щ}
 \makeatother
+
+\lhead{Subject, semester}
+\chead{}
+\rhead{Name Surname}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\lfoot{}
+\cfoot{\thepage\t{/}\pageref*{LastPage}}
+\rfoot{}
+\renewcommand{\footrulewidth}{0.4pt}
 
 \begin{document}
 
